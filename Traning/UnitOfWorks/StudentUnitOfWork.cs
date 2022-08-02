@@ -21,44 +21,6 @@
         public  async Task<Student> Create(Student student)
         {
           return  await _studentRepository.Add(student);
-
-            //using var transaction = await _studentRepository.Database.BeginTransactionAsync();
-
-            //try
-            //{
-            //    Student studentFromDb = await _studentRepository.Add(student);
-            //    await transaction.CommitAsync();
-            //    return student;
-
-            //    // Commit transaction if all commands succeed, transaction will auto-rollback
-            //    // when disposed if either commands fails
-
-            //}
-            //catch (Exception)
-            //{
-            //   await transaction.
-
-            //}
-            //return await _studentRepository.Add(student);
-
-            //using var transaction = await _studentRepository.Database.BeginTransactionAsync();
-
-            //try
-            //{
-            //    Student studentFromDb = await _studentRepository.Add(student);
-            //    await transaction.CommitAsync();
-            //    return student;
-
-            //    // Commit transaction if all commands succeed, transaction will auto-rollback
-            //    // when disposed if either commands fails
-
-            //}
-            //catch (Exception)
-            //{
-            //   await transaction.RollbackAsync();
-
-            //}
-            //return await _studentRepository.Add(student);
         }
 
 
