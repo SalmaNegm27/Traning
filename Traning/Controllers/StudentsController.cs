@@ -1,12 +1,13 @@
 ﻿namespace Traning.Controllers
 {
+    using Domain.Models;
+    using Application.UnitOfWorks;
     using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
-    using Traning.Models;
-    using Traning.Repositories;
-    using Traning.UnitOfWorks;
+
+  
 
     [ApiController]
     [Route("api/[controller]")]

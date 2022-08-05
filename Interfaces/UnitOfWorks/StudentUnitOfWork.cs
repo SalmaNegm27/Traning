@@ -1,10 +1,11 @@
-﻿namespace Traning.UnitOfWorks
+﻿namespace Application.UnitOfWorks
 {
+    using Application.Repositories;
+    using Domain.Models;
+ 
     using System.Collections.Generic;
     using System.Threading.Tasks;
-    using Traning.Models;
-    using Traning.Repositories;
-
+    
     public class StudentUnitOfWork : IStudentUnitOfWork
     {
         private readonly IStudentRepository _studentRepository;

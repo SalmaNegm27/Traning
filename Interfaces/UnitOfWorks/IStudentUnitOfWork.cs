@@ -1,6 +1,7 @@
-﻿namespace Traning.UnitOfWorks
+﻿namespace Application.UnitOfWorks
 {
-    using Traning.Models;
+    using Domain.Models;
+   
 
     public interface IStudentUnitOfWork
     {

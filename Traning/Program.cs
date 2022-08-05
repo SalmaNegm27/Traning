@@ -1,15 +1,22 @@
+using Application.Repositories;
+using Application.UnitOfWorks;
 using Microsoft.EntityFrameworkCore;
 using Traning;
-using Traning.Repositories;
-using Traning.UnitOfWorks;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
 builder.Services.AddControllers();
-builder.Services.AddDbContext<AppDbContext>(
-    options => options.UseSqlServer(builder.Configuration.GetConnectionString("defaultConnection")));
+var connectionString= builder.Configuration.GetConnectionString("defaultConnection");
+    builder.Services.AddDbContext<AppDbContext>(options =>
+    {
+        options
+            .UseSqlServer(connectionString, builder => builder.MigrationsAssembly(typeof(Program).Assembly.FullName))
+            .EnableDetailedErrors()
+            .EnableSensitiveDataLogging()
+            .UseQueryTrackingBehavior(QueryTrackingBehavior.NoTracking);
+    });
 
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
 builder.Services.AddScoped<IStudentUnitOfWork, StudentUnitOfWork>();

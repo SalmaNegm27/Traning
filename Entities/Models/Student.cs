@@ -1,4 +1,4 @@
-﻿namespace Traning.Models
+﻿namespace Domain.Models
 {
     public class Student
     {
