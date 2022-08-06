@@ -35,8 +35,8 @@
 
         public async Task Edit(T entity)
         {
-
-            _appDbContext.Set<T>().Update(entity);
+           
+        _appDbContext.Set<T>().Update(entity);
             await  _appDbContext.SaveChangesAsync();
         }
         public async Task Delete(T entity)

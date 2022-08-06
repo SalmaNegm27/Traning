@@ -29,11 +29,14 @@
            await  _studentRepository.Add(student);
             return student;
            
-                }
+         }
         [HttpPut]
         public async Task<Student> put(Student student)
         {
-             await _studentRepository.Edit(student);
+            
+            if(student == null)
+                throw new Exception("student doesnot exist");
+            await _studentRepository.Edit(student);
             return student;
         }
         //[HttpDelete]
