@@ -1,5 +1,6 @@
 using Application.Repositories;
-using Application.UnitOfWorks;
+using I.Repositories;
+using Infrastructure.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Traning;
 
@@ -19,7 +20,6 @@ var connectionString= builder.Configuration.GetConnectionString("defaultConnecti
     });
 
 builder.Services.AddScoped<IStudentRepository, StudentRepository>();
-builder.Services.AddScoped<IStudentUnitOfWork, StudentUnitOfWork>();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 

@@ -1,45 +1,45 @@
 ﻿namespace Traning.Controllers
 {
     using Domain.Models;
-    using Application.UnitOfWorks;
-    using Microsoft.AspNetCore.Http;
     using Microsoft.AspNetCore.Mvc;
     using System;
     using System.Collections.Generic;
-
-  
+    using I.Repositories;
 
     [ApiController]
     [Route("api/[controller]")]
     public class StudentsController : ControllerBase
     {
-       private readonly IStudentUnitOfWork _studentUnitOfWork;
-        public StudentsController(IStudentUnitOfWork studentUnitOfWork)
+       private readonly IStudentRepository _studentRepository;
+        public StudentsController(IStudentRepository studentRepository)
         {
-            _studentUnitOfWork = studentUnitOfWork; 
+            _studentRepository = studentRepository;
         }
 
         [HttpGet]
         public async Task<List<Student>> Get()
         {
-            return await _studentUnitOfWork.Read();
+            return await _studentRepository.GetAll();
 
         }
 
         [HttpPost]
         public async Task<Student> Post(Student student)
         {
-           return await _studentUnitOfWork.Create(student);
-        }
+           await  _studentRepository.Add(student);
+            return student;
+           
+                }
         [HttpPut]
         public async Task<Student> put(Student student)
         {
-            return await _studentUnitOfWork.Update(student);
+             await _studentRepository.Edit(student);
+            return student;
         }
-        [HttpDelete]
-        public async Task<Student> Delete(int id)
-        {
-           return await _studentUnitOfWork.Delete(id);
-        }
+        //[HttpDelete]
+        //public async Task<Student> Delete(int id)
+        //{
+        //   return await _studentRepository.Delete(id);
+        //}
     }
 }

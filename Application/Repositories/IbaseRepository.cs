@@ -8,9 +8,10 @@
 
     public interface IbaseRepository<T>
     {
-        Task<List<T>> Get();
-        Task Create(T entity);
-        Task Update(T entity);
+        Task<T> GetById(int id);
+        Task<List<T>> GetAll();
+        Task Add(T entity);
+        Task Edit(T entity);
         Task Delete(T entity);
     }
 }

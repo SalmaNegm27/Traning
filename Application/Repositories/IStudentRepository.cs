@@ -5,8 +5,7 @@
 
     public interface IStudentRepository : IbaseRepository<Student>
     {
-       
-       
-        
+     
+
     }
 }

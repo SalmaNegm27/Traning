@@ -15,26 +15,7 @@
         {
 
         }
-       
 
-        public Task<Student> Add(Student entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task Delete(Student entity)
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<List<Student>> Get()
-        {
-            throw new NotImplementedException();
-        }
-
-        public Task<Student> Update(Student entity)
-        {
-            throw new NotImplementedException();
-        }
+        
     }
 }
